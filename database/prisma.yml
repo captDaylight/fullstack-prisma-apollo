@@ -1,0 +1,3 @@
+endpoint: https://us1.prisma.sh/paulchristophe6-1adc8b/dev-fullstack/dev
+datamodel: datamodel.graphql
+secret: ${env:APP_SECRET}
