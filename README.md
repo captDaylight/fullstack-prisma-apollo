@@ -30,3 +30,11 @@ prisma deploy
 
 Select Demo server.
 you should get a endpoint like `https://us1.prisma.sh/myusername-1acc8b/my-project/dev`
+
+## Why Sessions
+
+
+## Error Handling
+
+
+## Testing

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/captDaylight/fullstack-prisma-apollo#readme",
   "dependencies": {
+    "bcrypt": "^3.0.2",
     "graphql-yoga": "^1.16.7"
   }
 }
