@@ -1,3 +1,7 @@
-endpoint: https://us1.prisma.sh/paulchristophe6-1adc8b/dev-fullstack/dev
+endpoint: ${env:DB_URL}
 datamodel: datamodel.graphql
 secret: ${env:APP_SECRET}
+
+hooks:
+  post-deploy:
+    - graphql get-schema --project database

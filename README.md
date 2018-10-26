@@ -31,6 +31,8 @@ prisma deploy
 Select Demo server.
 you should get a endpoint like `https://us1.prisma.sh/myusername-1acc8b/my-project/dev`
 
+Your graphqlconfig.yml is source of information for the GraphQL CLI.
+
 ## Why Sessions
 
 
