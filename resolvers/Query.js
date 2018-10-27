@@ -6,6 +6,6 @@ async function user(parent, args, context, info) {
   }, info);
 }
 
-module.exports {
+module.exports = {
   user,
 };
