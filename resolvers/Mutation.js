@@ -11,9 +11,9 @@ async function login(parent, args, context, info) {
 }
 
 async function signup(parent, args, context, info) {
-  const password = await bcrypt(args.password, 10);
+  const password = await bcrypt.hash(args.password, 10);
 
-  return await context.db.mutation.createUser({ ...args, password }, info);
+  return await context.db.mutation.createUser({ data: { ...args, password } }, info);
 }
 
 module.exports = {
