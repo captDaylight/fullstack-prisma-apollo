@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { SIGNUP, LOGIN } from '../apollo/mutations';
 
 class Auth extends PureComponent {
   constructor(props) {
