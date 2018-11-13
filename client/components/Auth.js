@@ -33,8 +33,15 @@ class Auth extends PureComponent {
           onCompleted={(res) => console.log('complete', res)}
         >
           {
-            (mutation, { error }) => {
-              <form>
+            (mutation, { error }) => (
+              <form
+                onSubmit={
+                  (e) => {
+                    e.preventDefault();
+                    mutation();
+                  }
+                }
+              >
                 {
                   isSignup
                   && (
@@ -71,8 +78,10 @@ class Auth extends PureComponent {
                   onChange={(e) => this.setState({ password: e.target.value })}
                   required
                 />
+
+                <button type="submit">Submit</button>
               </form>
-            }
+            )
           }
         </Mutation>
       </div>

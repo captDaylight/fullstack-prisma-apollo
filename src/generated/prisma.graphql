@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/paulchristophe6-1adc8b/dev-fullstack/dev
-# timestamp: Sat Oct 27 2018 17:37:58 GMT-0400 (EDT)
+# timestamp: Tue Nov 13 2018 14:46:35 GMT-0500 (EST)
 
 type AggregateUser {
   count: Int!
@@ -21,7 +21,7 @@ type Mutation {
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   deleteUser(where: UserWhereUniqueInput!): User
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
-  updateManyUsers(data: UserUpdateManyInput!, where: UserWhereInput): BatchPayload!
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
 }
 
@@ -167,7 +167,7 @@ input UserUpdateInput {
   password: String
 }
 
-input UserUpdateManyInput {
+input UserUpdateManyMutationInput {
   name: String
   email: String
   password: String
