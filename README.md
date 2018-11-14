@@ -35,6 +35,10 @@ Your graphqlconfig.yml is source of information for the GraphQL CLI.
 
 After adding the post deploy prisma hook, you're database generated schema in `src/generated`.
 
+## Authorization
+apollo best practices
+https://github.com/apollographql/apollo-server/blob/master/docs/source/best-practices/authentication.md
+
 ## Why Sessions
 
 
