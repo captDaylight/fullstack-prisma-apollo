@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "dev": "concurrently --kill-others-on-fail \"nodemon src/index.js\" \"parcel client/index.html\"",
+    "dev": "NODE_ENV=development concurrently --kill-others-on-fail \"nodemon src/index.js\" \"parcel client/index.html\"",
     "build": "parcel build ./client/index.html/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,8 +22,10 @@
     "apollo-boost": "^0.1.20",
     "bcrypt": "^3.0.2",
     "dotenv": "^6.1.0",
+    "express-session": "^1.15.6",
     "graphql": "^14.0.2",
     "graphql-yoga": "^1.16.7",
+    "ms": "^2.1.1",
     "prisma-binding": "^2.1.6",
     "react": "^16.6.1",
     "react-apollo": "^2.2.4",

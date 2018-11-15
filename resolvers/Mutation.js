@@ -7,6 +7,8 @@ async function login(parent, args, context, info) {
   const isValidPass = await bcrypt.compare(args.password, user.password);
   if (!isValidPass) throw new Error('wrong_credentials');
 
+  context.req.session.user = user.id;
+
   return user;
 }
 

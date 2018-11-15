@@ -38,6 +38,8 @@ After adding the post deploy prisma hook, you're database generated schema in `s
 ## Authorization
 apollo best practices
 https://github.com/apollographql/apollo-server/blob/master/docs/source/best-practices/authentication.md
+graphql-yoga
+https://github.com/prisma/graphql-yoga/tree/master/examples/authentication/express-session
 
 ## Why Sessions
 
