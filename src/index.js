@@ -32,7 +32,7 @@ const server = new GraphQLServer({
 
 server.express.use(session({
   name: 'qid',
-  secret: `some-random-secret-here`,
+  secret: 'some-random-secret-here',
   resave: true,
   saveUninitialized: true,
   cookie: {

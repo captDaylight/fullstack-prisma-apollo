@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 
-async function login(parent, args, context, info) {
+async function login(parent, args, context) {
   const user = await context.db.query.user({ where: { email: args.email } });
   if (!user) throw new Error('wrong_credentials');
 
@@ -15,7 +15,7 @@ async function login(parent, args, context, info) {
 async function signup(parent, args, context, info) {
   const password = await bcrypt.hash(args.password, 10);
 
-  return await context.db.mutation.createUser({ data: { ...args, password } }, info);
+  return context.db.mutation.createUser({ data: { ...args, password } }, info);
 }
 
 module.exports = {
