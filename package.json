@@ -24,8 +24,6 @@
     "dotenv": "^6.1.0",
     "graphql": "^14.0.2",
     "graphql-yoga": "^1.16.7",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
     "prisma-binding": "^2.1.6",
     "react": "^16.6.1",
     "react-apollo": "^2.2.4",

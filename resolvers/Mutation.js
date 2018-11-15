@@ -19,4 +19,4 @@ async function signup(parent, args, context, info) {
 module.exports = {
   login,
   signup,
-}
+};
