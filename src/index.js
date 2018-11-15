@@ -8,7 +8,7 @@ const Query = require('../resolvers/Query');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-if (!process.env.NODE_ENV) {
+if (!isProduction) {
   dotenv.config();
 }
 
@@ -30,15 +30,13 @@ const server = new GraphQLServer({
   }),
 });
 
-console.log(process.env.NODE_ENV, process.env.NODE_ENV === 'production');
-
 server.express.use(session({
   name: 'qid',
   secret: `some-random-secret-here`,
   resave: true,
   saveUninitialized: true,
   cookie: {
-    secure: process.env.NODE_ENV === 'production',
+    secure: isProduction,
     maxAge: ms('1d'),
   },
 }));
