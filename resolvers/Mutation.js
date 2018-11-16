@@ -7,7 +7,7 @@ async function login(parent, args, context) {
   const isValidPass = await bcrypt.compare(args.password, user.password);
   if (!isValidPass) throw new Error('wrong_credentials');
 
-  context.req.session.user = user.id;
+  context.request.session.user = user.id;
 
   return user;
 }
@@ -16,7 +16,7 @@ async function signup(parent, args, context, info) {
   const password = await bcrypt.hash(args.password, 10);
   const user = await context.db.mutation.createUser({ data: { ...args, password } }, info);
 
-  context.req.session.user = user.id;
+  context.request.session.user = user.id;
 
   return user;
 }
