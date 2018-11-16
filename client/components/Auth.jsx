@@ -30,7 +30,7 @@ class Auth extends PureComponent {
         <Mutation
           mutation={isSignup ? SIGNUP : LOGIN}
           variables={isSignup ? { email, name, password } : { email, password }}
-          onCompleted={(res) => console.log('complete', res)}
+          onCompleted={res => console.log('complete', res)}
         >
           {
             (mutation, { error }) => (
@@ -46,38 +46,44 @@ class Auth extends PureComponent {
                   isSignup
                   && (
                     <React.Fragment>
-                      <label htmlFor="auth-name">Name</label>
-                      <input
-                        type="name"
-                        name="auth-name"
-                        id="auth-name"
-                        value={name}
-                        onChange={(e) => this.setState({ name: e.target.value })}
-                        required
-                      />
+                      <label htmlFor="auth-name">
+                        Name
+                        <input
+                          type="name"
+                          name="auth-name"
+                          id="auth-name"
+                          value={name}
+                          onChange={e => this.setState({ name: e.target.value })}
+                          required
+                        />
+                      </label>
                     </React.Fragment>
                   )
                 }
 
-                <label htmlFor="auth-email">Email</label>
-                <input
-                  type="email"
-                  name="auth-email"
-                  id="auth-email"
-                  value={email}
-                  onChange={(e) => this.setState({ email: e.target.value })}
-                  required
-                />
+                <label htmlFor="auth-email">
+                  Email
+                  <input
+                    type="email"
+                    name="auth-email"
+                    id="auth-email"
+                    value={email}
+                    onChange={e => this.setState({ email: e.target.value })}
+                    required
+                  />
+                </label>
 
-                <label htmlFor="auth-password">Password</label>
-                <input
-                  type="password"
-                  name="auth-password"
-                  id="auth-password"
-                  value={password}
-                  onChange={(e) => this.setState({ password: e.target.value })}
-                  required
-                />
+                <label htmlFor="auth-password">
+                  Password
+                  <input
+                    type="password"
+                    name="auth-password"
+                    id="auth-password"
+                    value={password}
+                    onChange={e => this.setState({ password: e.target.value })}
+                    required
+                  />
+                </label>
 
                 <button type="submit">Submit</button>
               </form>

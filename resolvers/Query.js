@@ -1,4 +1,8 @@
-const isLoggedIn = (parent, args, { req }) => typeof req.session.user !== 'undefined';
+const isLoggedIn = (parent, args, { req }) => {
+  console.log('-hi-');
+  console.log(req.session);
+  return typeof req.session.user !== 'undefined'
+};
 
 async function user(parent, args, context, info) {
   return context.db.query.user({
