@@ -14,8 +14,11 @@ async function login(parent, args, context) {
 
 async function signup(parent, args, context, info) {
   const password = await bcrypt.hash(args.password, 10);
+  const user = await context.db.mutation.createUser({ data: { ...args, password } }, info);
 
-  return context.db.mutation.createUser({ data: { ...args, password } }, info);
+  context.req.session.user = user.id;
+
+  return user;
 }
 
 module.exports = {
