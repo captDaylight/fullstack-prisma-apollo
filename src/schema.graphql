@@ -1,4 +1,5 @@
 type Query {
+  isLoggedIn: Boolean!
   user(id: ID!): User
 }
 
