@@ -1,13 +1,21 @@
 import React from 'react';
 import { render } from 'react-dom';
-import ApolloClient from 'apollo-boost';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ApolloClient } from 'apollo-client';
+import { HttpLink } from 'apollo-link-http';
 import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Auth from './components/Auth';
 import Header from './components/Header';
 import Landing from './components/Landing';
 
-const client = new ApolloClient({ uri: 'http://localhost:4000' });
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: new HttpLink({
+    credentials: 'include',
+    uri: 'http://localhost:4000',
+  }),
+});
 
 const App = () => (
   <Router>

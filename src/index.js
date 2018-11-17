@@ -31,14 +31,20 @@ const server = new GraphQLServer({
 });
 
 server.express.use(session({
-  name: 'qid',
+  name: 'pid',
   secret: 'some-random-secret-here',
-  resave: true,
-  saveUninitialized: true,
+  resave: false,
+  saveUninitialized: false,
   cookie: {
+    httpOnly: true,
     secure: isProduction,
     maxAge: ms('1d'),
   },
 }));
 
-server.start(() => console.log('server is running on localhost:4000'));
+server.start({
+  cors: {
+    credentials: true,
+    origin: 'http://localhost:1234',
+  },
+}, () => console.log('server is running on localhost:4000'));
