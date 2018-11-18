@@ -40,6 +40,8 @@ apollo best practices
 https://github.com/apollographql/apollo-server/blob/master/docs/source/best-practices/authentication.md
 graphql-yoga
 https://github.com/prisma/graphql-yoga/tree/master/examples/authentication/express-session
+had to switch from apollo boost because of sessions not being persisted:
+https://github.com/apollographql/apollo-client/issues/4018#issuecomment-439654182
 
 ## Why Sessions
 

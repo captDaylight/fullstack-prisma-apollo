@@ -12,10 +12,17 @@ const Header = () => (
         <header>
           header is logged in:
           {' '}
-          {data.isLoggedIn ? 'yes' : 'no'}
-
-          <Link to="/signup">sign up</Link>
-          <Link to="/login">log in</Link>
+          {console.log(data)}
+          {
+            (data.isLoggedIn && data.isLoggedIn.status)
+              ? (
+                <React.Fragment>
+                  <Link to="/signup">sign up</Link>
+                  <Link to="/login">log in</Link>
+                </React.Fragment>
+              )
+              : <div>logout</div>
+          }
         </header>
       )
     }

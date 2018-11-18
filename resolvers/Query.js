@@ -1,4 +1,4 @@
-const isLoggedIn = (parent, args, { request }) => typeof request.session.user !== 'undefined';
+const isLoggedIn = (parent, args, { request }) => ({ status: typeof request.session.user !== 'undefined' });
 
 async function user(parent, args, context, info) {
   return context.db.query.user({
