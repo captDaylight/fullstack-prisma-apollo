@@ -19,3 +19,12 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export const LOGOUT = gql`
+  mutation LogoutMutation {
+    logout {
+      status
+      __typename
+    }
+  }
+`;

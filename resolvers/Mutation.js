@@ -24,11 +24,9 @@ async function signup(parent, args, context, info) {
 function logout(parent, args, context) {
   if (!context.request.session) throw new Error('auth_error');
 
-  context.request.session.destroy((err) => {
-    if (err) throw new Error('something_wrong');
+  context.request.session.destroy();
 
-    return { status: true };
-  });
+  return { status: false };
 }
 
 module.exports = {

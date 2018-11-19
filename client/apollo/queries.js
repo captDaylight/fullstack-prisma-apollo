@@ -4,6 +4,7 @@ export const GET_AUTH_STATUS = gql`
   {
     isLoggedIn {
       status
+      __typename
     }
   }
 `;

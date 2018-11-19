@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Mutation } from 'react-apollo';
 import { SIGNUP, LOGIN } from '../apollo/mutations';
+import { GET_AUTH_STATUS } from '../apollo/queries';
 
 class Auth extends PureComponent {
   constructor(props) {
@@ -30,10 +31,20 @@ class Auth extends PureComponent {
         <Mutation
           mutation={isSignup ? SIGNUP : LOGIN}
           variables={isSignup ? { email, name, password } : { email, password }}
-          onCompleted={res => console.log('complete', res)}
+          update={(cache) => {
+            cache.writeQuery({
+              query: GET_AUTH_STATUS,
+              data: {
+                isLoggedIn: {
+                  status: true,
+                  __typename: 'AuthStatus',
+                },
+              },
+            });
+          }}
         >
           {
-            (mutation, { error }) => (
+            mutation => (
               <form
                 onSubmit={
                   (e) => {

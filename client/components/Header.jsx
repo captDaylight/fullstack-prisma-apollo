@@ -1,7 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Query } from 'react-apollo';
+import { Query, Mutation } from 'react-apollo';
 import { GET_AUTH_STATUS } from '../apollo/queries';
+import { LOGOUT } from '../apollo/mutations';
+
+const logoutUpdate = (cache, { data }) => {
+  cache.writeQuery({
+    query: GET_AUTH_STATUS,
+    data: { isLoggedIn: data.logout },
+  });
+};
 
 const Header = () => (
   <Query
@@ -12,16 +20,22 @@ const Header = () => (
         <header>
           header is logged in:
           {' '}
-          {console.log(data)}
           {
-            (data.isLoggedIn && data.isLoggedIn.status)
+            (data.isLoggedIn && !data.isLoggedIn.status)
               ? (
                 <React.Fragment>
                   <Link to="/signup">sign up</Link>
                   <Link to="/login">log in</Link>
                 </React.Fragment>
               )
-              : <div>logout</div>
+              : (
+                <Mutation
+                  mutation={LOGOUT}
+                  update={logoutUpdate}
+                >
+                  {logout => <button onClick={logout} type="button">logout</button>}
+                </Mutation>
+              )
           }
         </header>
       )
