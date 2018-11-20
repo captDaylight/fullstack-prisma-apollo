@@ -1,6 +1,6 @@
 type Query {
   isLoggedIn: AuthStatus!
-  user(id: ID!): User
+  user: User
 }
 
 type Mutation {

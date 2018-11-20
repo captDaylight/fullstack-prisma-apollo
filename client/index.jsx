@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Auth from './components/Auth';
 import Header from './components/Header';
 import Landing from './components/Landing';
+import Dashboard from './components/Dashboard';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -24,7 +25,8 @@ const App = () => (
 
       <Route path="/signup" render={() => <Auth type="SIGNUP" />} />
       <Route path="/login" render={() => <Auth type="LOGIN" />} />
-      <Route path="/" render={Landing} />
+      <Route path="/dashboard" render={Dashboard} />
+      <Route path="/" render={Landing} exact />
     </ApolloProvider>
   </Router>
 );
