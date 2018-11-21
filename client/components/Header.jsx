@@ -19,13 +19,13 @@ const Header = () => (
       ({ loading, error, data }) => (
         <header>
           <Link to="/">HEADER</Link>
-          {' '}
+          {' - '}
           {
             (!loading && !data.isLoggedIn.status)
               ? (
                 <React.Fragment>
                   <Link to="/signup">sign up</Link>
-                  {' '}
+                  {' - '}
                   <Link to="/login">log in</Link>
                 </React.Fragment>
               )
