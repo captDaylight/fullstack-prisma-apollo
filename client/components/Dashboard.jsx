@@ -7,13 +7,18 @@ const Dashboard = () => (
     query={GET_USER}
   >
     {
-      ({ data, loading }) => (
-        <div>
-          Welcome to your dashboard
-          {' '}
-          {!loading ? data.user.email : 'loading...'}
-        </div>
-      )
+      ({ loading, error, data }) => {
+        if (loading) return <span>loading...</span>;
+        if (error) return <span>error.</span>;
+
+        return (
+          <div>
+            Welcome to your dashboard
+            {' '}
+            {data.user.email}
+          </div>
+        );
+      }
     }
   </Query>
 

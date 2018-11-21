@@ -16,12 +16,12 @@ const Header = () => (
     query={GET_AUTH_STATUS}
   >
     {
-      ({ data }) => (
+      ({ loading, error, data }) => (
         <header>
-          header is logged in:
+          HEADER
           {' '}
           {
-            (data.isLoggedIn && !data.isLoggedIn.status)
+            (!loading && !data.isLoggedIn.status)
               ? (
                 <React.Fragment>
                   <Link to="/signup">sign up</Link>
@@ -37,10 +37,12 @@ const Header = () => (
                 </Mutation>
               )
           }
+          {
+            error && <span>error.</span>
+          }
         </header>
       )
     }
-
   </Query>
 );
 

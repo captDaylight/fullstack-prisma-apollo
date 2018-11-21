@@ -16,7 +16,7 @@ const ProtectedRoute = ({
         query={GET_AUTH_STATUS}
       >
         {
-          ({ data, loading, error }) => {
+          ({ loading, error, data }) => {
             if (loading) return <span>loading...</span>;
             if (error) return <span>error.</span>;
 
