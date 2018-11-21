@@ -9,6 +9,7 @@ import Auth from './components/Auth';
 import Header from './components/Header';
 import Landing from './components/Landing';
 import Dashboard from './components/Dashboard';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -23,9 +24,9 @@ const App = () => (
     <ApolloProvider client={client}>
       <Header />
 
-      <Route path="/signup" render={() => <Auth type="SIGNUP" />} />
-      <Route path="/login" render={() => <Auth type="LOGIN" />} />
-      <Route path="/dashboard" render={Dashboard} />
+      <ProtectedRoute unAuthenticatedOnly path="/signup" component={() => <Auth type="SIGNUP" />} />
+      <ProtectedRoute unAuthenticatedOnly path="/login" component={() => <Auth type="LOGIN" />} />
+      <ProtectedRoute authenticatedOnly path="/dashboard" component={Dashboard} />
       <Route path="/" render={Landing} exact />
     </ApolloProvider>
   </Router>
