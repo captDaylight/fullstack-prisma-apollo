@@ -47,5 +47,3 @@ https://github.com/prisma/graphql-yoga/tree/master/examples/authentication/expre
 [Many](https://www.apollographql.com/docs/react/recipes/authentication.html) [examples](https://www.howtographql.com/graphql-js/6-authentication/) of using Apollo or graphql demonstrate saving a the user's JWT packet in respnse header or ... localstorage 😳. After reading quite a [few](https://www.rdegges.com/2018/please-stop-using-local-storage/) [posts](http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/) on the subject, I wanted to show a production ready, battle tested solution like sessions. This required a few caveats in the codebase such as query for checking if the user is logged in on page load.
 
 - For ApolloClient, had to switch from using apollo-boost because of [sessions not being persisted](https://github.com/apollographql/apollo-client/issues/4018#issuecomment-439654182). Manually installing `apollo-boost`'s constituent parts fixed the problem.
-
-## Testing
