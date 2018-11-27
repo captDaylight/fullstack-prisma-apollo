@@ -3,8 +3,8 @@ const { Prisma } = require('prisma-binding');
 const session = require('express-session');
 const dotenv = require('dotenv');
 const ms = require('ms');
-const Mutation = require('../resolvers/Mutation');
-const Query = require('../resolvers/Query');
+const Mutation = require('./resolvers/Mutation');
+const Query = require('./resolvers/Query');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
