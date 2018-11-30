@@ -26,7 +26,9 @@ const App = () => (
 
       <ProtectedRoute unAuthenticatedOnly path="/signup" component={() => <Auth type="SIGNUP" />} />
       <ProtectedRoute unAuthenticatedOnly path="/login" component={() => <Auth type="LOGIN" />} />
+
       <ProtectedRoute authenticatedOnly path="/dashboard" component={Dashboard} />
+
       <Route path="/" render={Landing} exact />
     </ApolloProvider>
   </Router>
