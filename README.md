@@ -16,18 +16,17 @@ yarn global prisma graphql-cli nodemon
 ```
 
 ## Generating Prisma
-First setting up:
+After logging into Prisma's CLI:
 ```shell
-cd database
-prisma deploy
+prisma deploy database
 ```
 
-Select Demo server which will give you an endpoint like `https://us1.prisma.sh/myusername-2acca9a/my-project/dev`.
+Select Demo server which will give you an endpoint like `https://us1.prisma.sh/myusername-12345/my-project/dev`.
 
 Place a `.env` file in the database folder listing the variables in `database/prisma.yml`. For example:
 ```
 APP_SECRET=mysecret123
-DB_URL=https://us1.prisma.sh/myusername-2acca9a/my-project/dev
+DB_URL=https://us1.prisma.sh/myusername-12345/my-project/dev
 ```
 
 ## Running the dev server
